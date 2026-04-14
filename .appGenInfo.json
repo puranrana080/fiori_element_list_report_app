@@ -1,0 +1,32 @@
+{
+  "generationParameters": {
+    "generationDate": "Tue Apr 14 2026 07:45:34 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "OData URL",
+    "metadataFilename": "",
+    "serviceUrl": "http://airdithanadev.airditsoftware.com:8010/sap/opu/odata/sap/ZP5FE_EMP_SRV",
+    "appName": "p5felrsegw",
+    "appTitle": "Employee Management List Report Application",
+    "appDescription": "An SAP Fiori application with list report.",
+    "appNamespace": "com.listreport",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.0",
+    "enableEslint": true,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.22.0",
+    "template": "List Report Page V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "EmployeeSet"
+      },
+      {
+        "type": "Navigation Entity",
+        "value": "toProjects"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}
