@@ -6,6 +6,15 @@ sap.ui.define([
 ], function (Filter, SmartFilterBar, MultiComboBox, MessageBox) {
     "use strict";
     return {
+
+        onAfterRendering(){
+            var oSmartFilterBar = this.byId("listReportFilter");
+          var oDesigFilter =  oSmartFilterBar.getAllFilterItems()[2].getControl();
+          oDesigFilter.setTokens([new sap.m.Token({
+            key:'MANAGER',
+            text:"=MANAGER"
+          })]);
+        },
         getCustomAppStateDataExtension: function (oCustomData) {
             //the content of the custom field will be stored in the app state, so that it can be restored later, for example after a back navigation.
             //The developer has to ensure that the content of the field is stored in the object that is passed to this method.
@@ -37,11 +46,11 @@ sap.ui.define([
                 var oCustomControl = oSmartFilterBar.getControlByKey("Status");
 
                 var desigFilter = oSmartFilterBar.getControlByKey("Desig");
-                if (desigFilter.getTokens().length === 0) {
-                    MessageBox.error("Designation filter is mandatory")
-                    oBindingParams.preventTableBind = true
-                }
-                else {
+                // if (desigFilter.getTokens().length === 0) {
+                //     MessageBox.error("Designation filter is mandatory")
+                //     oBindingParams.preventTableBind = true
+                // }
+                // else {
                     if (oCustomControl instanceof MultiComboBox) {
                         var aStatus = oCustomControl.getSelectedKeys();
                         if (aStatus.length > 0) {
@@ -72,7 +81,7 @@ sap.ui.define([
                         // }
                     }
 
-                }
+                // }
 
 
 

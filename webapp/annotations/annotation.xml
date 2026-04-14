@@ -45,6 +45,7 @@
          <Annotations Target="ZP5FE_EMP_SRV.Employee/Skill">
             <Annotation Term="Common.Label" String="{@i18n>skill}">
             </Annotation>
+          <Annotation Term="Common.FilterDefaultValue" String="SAPUI5"/>      
         </Annotations>
          <Annotations Target="ZP5FE_EMP_SRV.Employee/Status">
             <Annotation Term="Common.Label" String="{@i18n>status}">
