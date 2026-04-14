@@ -36,6 +36,7 @@ server:
         backend:
           - path: /sap
             url: http://airdithanadev.airditsoftware.com:8010
+            client: '800'
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

@@ -10,23 +10,50 @@
       
             <Annotations Target="ZP5FE_EMP_SRV.Employee">
                 <Annotation Term="UI.LineItem">
+                <Annotation Term="UI.Criticality" Path="Statuscriticality" />
                     <Collection>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Empid"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Name"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Desig"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Skill"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Salary"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Status"/>
+                            <PropertyValue Property="Criticality" Path="Statuscriticality"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Label" String="Rating"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPRating"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Doj"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                     </Collection>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPRating">
+                    <Record>
+                        <PropertyValue Property="Value" Path="Rating"/>
+                        <PropertyValue Property="TargetValue" Int="5"/>
+                        <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Rating"/>
+                    </Record>
                 </Annotation>
             </Annotations>
         </Schema>
