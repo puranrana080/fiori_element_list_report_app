@@ -120,7 +120,6 @@
                         <PropertyPath>Desig</PropertyPath>
                         <PropertyPath>Skill</PropertyPath>
                         <PropertyPath>Salary</PropertyPath>
-                        <PropertyPath>Status</PropertyPath>
                        
                     </Collection>
                 </Annotation>

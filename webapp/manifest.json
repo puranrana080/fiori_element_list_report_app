@@ -115,9 +115,19 @@
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "com.listreport.p5felrsegw.ext.fragment.ResponsiveTableCells",
                             "type": "XML"
+                        },
+                        "SmartFilterBarControlConfigurationExtension|EmployeeSet": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "com.listreport.p5felrsegw.ext.fragment.CustomStatusFilter",
+                            "type": "XML"
                         }
                     },
                     "sap.suite.ui.generic.template.ObjectPage.view.Details": {}
+                },
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "controllerName": "com.listreport.p5felrsegw.ext.controller.ListReportExt"
+                    }
                 }
             }
         }
