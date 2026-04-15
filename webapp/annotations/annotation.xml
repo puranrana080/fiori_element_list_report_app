@@ -86,7 +86,7 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low" />
                         </Record>
                         <Record Type="UI.DataFieldForAnnotation">
-                            <PropertyValue Property="Label" String="Rating" />
+                            <PropertyValue Property="Label" String="{@i18n>rating}" />
                             <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPRating" />
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
                         </Record>
@@ -230,23 +230,23 @@
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.CollectionFacet">
-                        <PropertyValue Property="Label" String="{@i18n>employeeInformation}"/>
+                            <PropertyValue Property="Label" String="{@i18n>employeeInformation}"/>
                             <PropertyValue Property="Facets">
                                 <Collection>
                                     <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="Basic Info" />
-                                        <PropertyValue Property="ID" String="idEmpInfo" />
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpBasicInfo" />
+                                        <PropertyValue Property="Label" String="{@i18n>basicInfo}"/>
+                                        <PropertyValue Property="ID" String="idEmpInfo"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpBasicInfo"/>
                                     </Record>
                                     <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="Skill Info" />
-                                        <PropertyValue Property="ID" String="idEmpSkill" />
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpSkill" />
+                                        <PropertyValue Property="Label" String="{@i18n>skillInfo}"/>
+                                        <PropertyValue Property="ID" String="idEmpSkill"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpSkill"/>
                                     </Record>
                                     <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="Performance Info" />
-                                        <PropertyValue Property="ID" String="idEmpPerf" />
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpPerf" />
+                                        <PropertyValue Property="Label" String="{@i18n>performanceInfo}"/>
+                                        <PropertyValue Property="ID" String="idEmpPerf"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpPerf"/>
                                     </Record>
                                 </Collection>
                             </PropertyValue>
@@ -254,6 +254,11 @@
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Target" AnnotationPath="toProjects/@UI.LineItem#LIProjects"/>
                             <PropertyValue Property="Label" String="{@i18n>projectsInformation}"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="toProjects/@UI.Chart"/>
+                            <PropertyValue Property="Label" String="Project Vs Team Size"/>
+                            <PropertyValue Property="ID" String="idProjectMembers"/>
                         </Record>
                     </Collection>
                 </Annotation>
@@ -279,6 +284,39 @@
                 </Collection>
             </Annotation>
                 
+                <Annotation Term="UI.Chart">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Description" String="Project Name vs Team Size"/>
+                        <PropertyValue Property="Title" String="Project Name vs Team Size"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>Prjname</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="Prjname"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>Teamsize</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="Teamsize"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
             </Annotations>
         </Schema>
     </edmx:DataServices>
