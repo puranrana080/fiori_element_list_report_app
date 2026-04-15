@@ -45,7 +45,7 @@ sap.ui.define([
             if (oSmartFilterBar instanceof SmartFilterBar) {
                 var oCustomControl = oSmartFilterBar.getControlByKey("Status");
 
-                var desigFilter = oSmartFilterBar.getControlByKey("Desig");
+                // var desigFilter = oSmartFilterBar.getControlByKey("Desig");
                 // if (desigFilter.getTokens().length === 0) {
                 //     MessageBox.error("Designation filter is mandatory")
                 //     oBindingParams.preventTableBind = true
@@ -61,10 +61,10 @@ sap.ui.define([
 
                             oBindingParams.filters.push(new Filter(aStatusFilters, false))
                         }
-                        if (oBindingParams.filters.length === 0) {
-                            MessageBox.error("Please select atleast one filter and Click Go Button")
-                            oBindingParams.preventTableBind = true
-                        }
+                        // if (oBindingParams.filters.length === 0) {
+                        //     MessageBox.error("Please select atleast one filter and Click Go Button")
+                        //     oBindingParams.preventTableBind = true
+                        // }
 
                         // if(status!==""){
                         //     oBindingParams.filters.push(new Filter("Status","EQ",status))
@@ -84,9 +84,23 @@ sap.ui.define([
                 // }
 
 
-
-
+            }    
+        },
+        sendNoticeToEmp: function(oEvent) {
+            var extensionAPI = this.extensionAPI;
+            var aSelectContexts = extensionAPI.getSelectedContexts();
+            var aEmails =[]
+            for(var i=0;i<aSelectContexts.length;i++){
+                aEmails.push(aSelectContexts[i].getProperty('Email'))
             }
+            var toList = aEmails.toString();
+            var subject = "Warning Notice on your Performance"
+            var body = "Hi ,\n We have noticed your performance is not up to the mark ! \nThanks\n HR"
+
+           sap.m.URLHelper.triggerEmail(toList,subject,body);
+
+
+            MessageBox.show("Custom handler invoked.");
         }
     };
 });

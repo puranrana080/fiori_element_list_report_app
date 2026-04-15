@@ -126,7 +126,20 @@
                 },
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                        "controllerName": "com.listreport.p5felrsegw.ext.controller.ListReportExt"
+                        "controllerName": "com.listreport.p5felrsegw.ext.controller.ListReportExt",
+                        "sap.ui.generic.app": {
+                            "EmployeeSet": {
+                                "EntitySet": "EmployeeSet",
+                                "Actions": {
+                                    "idSendNotice": {
+                                        "id": "idSendNoticeButton",
+                                        "text": "Send Email Notice to Employees",
+                                        "press": "sendNoticeToEmp",
+                                        "requiresSelection": true
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -156,7 +169,8 @@
                             }
                         },
                         "tableSettings": {
-                            "type": "ResponsiveTable"
+                            "type": "ResponsiveTable",
+                            "multiSelect": true
                         }
                     }
                 },
