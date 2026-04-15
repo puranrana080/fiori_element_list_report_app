@@ -1,121 +1,116 @@
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
-        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
     </edmx:Reference>
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
-        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
     </edmx:Reference>
     <edmx:Reference Uri="/sap/opu/odata/sap/ZP5FE_EMP_SRV/$metadata">
-        <edmx:Include Namespace="ZP5FE_EMP_SRV"/>
+        <edmx:Include Namespace="ZP5FE_EMP_SRV" />
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
-        <Annotations Target="ZP5FE_EMP_SRV.Employee/Empid">
-            <Annotation Term="Common.Label" String="{@i18n>employeeId}">
-            </Annotation>
-            <!-- <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/> -->
-            <Annotation Term="Common.ValueList">
-                <Record Type="Common.ValueListType">
-                    <PropertyValue Property="Parameters">
-                        <Collection>
-                            <Record Type="Common.ValueListParameterInOut">
-                                <PropertyValue Property="ValueListProperty" String="Empid"/>
-                                <PropertyValue Property="LocalDataProperty" PropertyPath="Empid"/>
-                            </Record>
-                            <Record Type="Common.ValueListParameterDisplayOnly">
-                                <PropertyValue Property="ValueListProperty" String="Name"/>
-                            </Record>
-                        </Collection>
-                    </PropertyValue>
-                    <PropertyValue Property="Label" String="{@i18n>employeeId}"/>
-                    <PropertyValue Property="SearchSupported" Bool="true"/>
-                    <PropertyValue Property="CollectionPath" String="EmployeeSet"/>
-                </Record>
-            </Annotation>
-        </Annotations>
-         <Annotations Target="ZP5FE_EMP_SRV.Employee/Name">
-            <Annotation Term="Common.Label" String="{@i18n>name}">
-                
-            </Annotation>
-        </Annotations>
-         <Annotations Target="ZP5FE_EMP_SRV.Employee/Desig">
-            <Annotation Term="Common.Label" String="{@i18n>designation}">
-            </Annotation>
-        </Annotations>
-         <Annotations Target="ZP5FE_EMP_SRV.Employee/Skill">
-            <Annotation Term="Common.Label" String="{@i18n>skill}">
-            </Annotation>
-          <Annotation Term="Common.FilterDefaultValue" String="SAPUI5"/>      
-        </Annotations>
-         <Annotations Target="ZP5FE_EMP_SRV.Employee/Status">
-            <Annotation Term="Common.Label" String="{@i18n>status}">
-            </Annotation>
-        </Annotations>
-        <Annotations Target="ZP5FE_EMP_SRV.Employee/Rating">
-            <Annotation Term="Common.Label" String="{@i18n>rating}">
-            </Annotation>
-        </Annotations>
-        <Annotations Target="ZP5FE_EMP_SRV.Employee/Doj">
-            <Annotation Term="Common.Label" String="{@i18n>doj}">
-            </Annotation>
-        </Annotations>
-      
+            <Annotations Target="ZP5FE_EMP_SRV.Employee/Empid">
+                <Annotation Term="Common.Label" String="{@i18n>employeeId}" />
+                <!-- <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/> -->
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Empid" />
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Empid" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Label" String="{@i18n>employeeId}" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="CollectionPath" String="EmployeeSet" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZP5FE_EMP_SRV.Employee/Name">
+                <Annotation Term="Common.Label" String="{@i18n>name}" />
+            </Annotations>
+            <Annotations Target="ZP5FE_EMP_SRV.Employee/Desig">
+                <Annotation Term="Common.Label" String="{@i18n>designation}" />
+            </Annotations>
+            <Annotations Target="ZP5FE_EMP_SRV.Employee/Skill">
+                <Annotation Term="Common.Label" String="{@i18n>skill}" />
+                <Annotation Term="Common.FilterDefaultValue" String="SAPUI5" />
+            </Annotations>
+            <Annotations Target="ZP5FE_EMP_SRV.Employee/Status">
+                <Annotation Term="Common.Label" String="{@i18n>status}" />
+            </Annotations>
+            <Annotations Target="ZP5FE_EMP_SRV.Employee/Rating">
+                <Annotation Term="Common.Label" String="{@i18n>rating}" />
+            </Annotations>
+            <Annotations Target="ZP5FE_EMP_SRV.Employee/Doj">
+                <Annotation Term="Common.Label" String="{@i18n>doj}" />
+            </Annotations>
+
             <Annotations Target="ZP5FE_EMP_SRV.Employee">
                 <Annotation Term="UI.LineItem">
-                <Annotation Term="UI.Criticality" Path="Statuscriticality" />
+                    <Annotation Term="UI.Criticality" Path="Statuscriticality" />
                     <Collection>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Empid"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                            <PropertyValue Property="Value" Path="Empid" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Name"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                            <PropertyValue Property="Value" Path="Name" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Desig"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                            <PropertyValue Property="Value" Path="Desig" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Skill"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
+                            <PropertyValue Property="Value" Path="Skill" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Salary"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
+                            <PropertyValue Property="Value" Path="Salary" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Status"/>
-                            <PropertyValue Property="Criticality" Path="Statuscriticality"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                            <PropertyValue Property="Value" Path="Status" />
+                            <PropertyValue Property="Criticality" Path="Statuscriticality" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Email"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
+                            <PropertyValue Property="Value" Path="Email" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low" />
                         </Record>
                         <Record Type="UI.DataFieldForAnnotation">
-                            <PropertyValue Property="Label" String="Rating"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPRating"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                            <PropertyValue Property="Label" String="Rating" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPRating" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Doj"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
+                            <PropertyValue Property="Value" Path="Doj" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low" />
                         </Record>
                     </Collection>
                 </Annotation>
-                <Annotation Term="UI.DataPoint" Qualifier="DPRating">
-                    <Record>
-                        <PropertyValue Property="Value" Path="Rating"/>
-                        <PropertyValue Property="TargetValue" Int="5"/>
-                        <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Rating"/>
-                    </Record>
-                </Annotation>
 
-                <Annotation Term="UI.HeaderInfo" >
+                <Annotation Term="UI.HeaderInfo">
                     <Record Type="UI.HeaderInfoType">
-                        <PropertyValue Property="TypeName" String="{@i18n>employee}"/>
-                        <PropertyValue Property="TypeNamePlural" String="{@i18n>employees}"/>
+                        <PropertyValue Property="TypeName" String="{@i18n>employee}" />
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>employees}" />
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Name" />
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Empid" />
+                            </Record>
+                        </PropertyValue>
                     </Record>
                 </Annotation>
                 <Annotation Term="UI.SelectionFields">
@@ -125,7 +120,57 @@
                         <PropertyPath>Desig</PropertyPath>
                         <PropertyPath>Skill</PropertyPath>
                         <PropertyPath>Salary</PropertyPath>
-                       
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPDesig">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Title" String="{@i18n>designation}" />
+                        <PropertyValue Property="Value" Path="Desig" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPSkill">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Title" String="{@i18n>skill}" />
+                        <PropertyValue Property="Value" Path="Skill" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPEmail">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Title" String="{@i18n>Email}" />
+                        <PropertyValue Property="Value" Path="Email" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPStatus">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Title" String="{@i18n>Status}" />
+                        <PropertyValue Property="Value" Path="Status" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPRating">
+                    <Record>
+                        <PropertyValue Property="Title" String="{@i18n>rating}" />
+                        <PropertyValue Property="Value" Path="Rating" />
+                        <PropertyValue Property="TargetValue" Int="5" />
+                        <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Rating" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPDesig" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPSkill" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPRating" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPEmail" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPStatus"/>
+                        </Record>
                     </Collection>
                 </Annotation>
             </Annotations>
