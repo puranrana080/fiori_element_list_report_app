@@ -27,12 +27,21 @@
                     <PropertyRef Name="Empid"/>
                     <PropertyRef Name="Prjcode"/>
                 </Key>
-                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="EMPID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Teamsize" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="TEAMSIZE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="EMPID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Prjcode" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="PRJCODE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Clientname" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="CLIENTNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Prjname" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="PRJNAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Prjdesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="PRJDESC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Photo" m:HasStream="true" sap:is-thing-type="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="EMPID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="FILENAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filetype" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="FILETYPE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filecontent" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Binary String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <Association Name="EmployeesToProjects" sap:content-version="1">
                 <End Type="ZP5FE_EMP_SRV.Employee" Multiplicity="1" Role="FromRole_EmployeesToProjects"/>
@@ -47,12 +56,17 @@
                 </ReferentialConstraint>
             </Association>
             <EntityContainer Name="ZP5FE_EMP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="EmployeeSet" EntityType="ZP5FE_EMP_SRV.Employee" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="ProjectSet" EntityType="ZP5FE_EMP_SRV.Project" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="EmployeeSet" EntityType="ZP5FE_EMP_SRV.Employee" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ProjectSet" EntityType="ZP5FE_EMP_SRV.Project" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PhotoSet" EntityType="ZP5FE_EMP_SRV.Photo" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <AssociationSet Name="EmployeesToProjectsSet" Association="ZP5FE_EMP_SRV.EmployeesToProjects" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="EmployeeSet" Role="FromRole_EmployeesToProjects"/>
                     <End EntitySet="ProjectSet" Role="ToRole_EmployeesToProjects"/>
                 </AssociationSet>
+                <FunctionImport Name="UpdateEmpStatus" ReturnType="ZP5FE_EMP_SRV.Employee" EntitySet="EmployeeSet" m:HttpMethod="POST" sap:action-for="ZP5FE_EMP_SRV.Employee">
+                    <Parameter Name="Status" Type="Edm.String" Mode="In"/>
+                    <Parameter Name="Empid" Type="Edm.String" Mode="In"/>
+                </FunctionImport>
             </EntityContainer>
             <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
             <Annotations Target="ZP5FE_EMP_SRV.ZP5FE_EMP_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>

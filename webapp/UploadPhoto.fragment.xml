@@ -5,44 +5,20 @@
     xmlns:u="sap.ui.unified"
 >
     <Dialog
-        id="idPhotoDialog"
-        title="Photo Upload"
-        contentWidth="40%"
-    >
-        <Panel
-            headerText="Upload Profile Picture"
-            expandable="true"
-            expanded="true"
-        >
+        id="idPhotoDialog"  title="Photo Upload" contentWidth="40%" >
+        <Panel headerText="Upload Profile Picture" expandable="true" expanded="true" >
             <f:SimpleForm editable="true">
                 <f:content>
                     <Label text="Select your photo" />
-                    <u:FileUploader
-                        id="idFileupload"
-                        uploadUrl="/sap/opu/odata/sap/ZP5FE_EMP_SRV/PhotoSet"
-                        sendXHR="true"
-                        useMultipart="false"
-                        change="onFileSelect"
-                        uploadComplete="onUploadComplete"
-                    />
+                    <u:FileUploader id="idFileupload" uploadUrl="/sap/opu/odata/sap/ZP5FE_EMP_SRV/PhotoSet" sendXHR="true"
+                        useMultipart="false" change="onFileSelect" uploadComplete="onUploadComplete" />
                     <Label />
-                    <Button
-                        width="100px"
-                        text="upload"
-                        icon="sap-icon://upload"
-                        type="Emphasized"
-                        press="uploadPhoto"
-                    />
+                    <Button width="100px" text="upload" icon="sap-icon://upload" type="Emphasized" press="uploadPhoto"/>
                 </f:content>
             </f:SimpleForm>
         </Panel>
-
         <endButton>
-            <Button
-                text="Close"
-                type="Reject"
-                press="onCloseDialog"
-            />
+            <Button text="Close" type="Reject" press="onCloseDialog" />
         </endButton>
     </Dialog>
 </core:FragmentDefinition>

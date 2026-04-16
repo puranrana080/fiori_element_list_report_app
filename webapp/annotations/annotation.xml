@@ -94,6 +94,11 @@
                             <PropertyValue Property="Value" Path="Doj" />
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low" />
                         </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Action" String="ZP5FE_EMP_SRV.ZP5FE_EMP_SRV_Entities/UpdateEmpStatus"/>
+                            <PropertyValue Property="Label" String="Take decision"/>
+                            <PropertyValue Property="Determining" Bool="true"/>
+                        </Record>
                     </Collection>
                 </Annotation>
 
@@ -263,6 +268,18 @@
                         </Record>
                     </Collection>
                 </Annotation>
+                <Annotation Term="UI.Identification" >
+                    <Collection>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Action" String="ZP5FE_EMP_SRV.ZP5FE_EMP_SRV_Entities/UpdateEmpStatus"/>
+                            <PropertyValue Property="Label" String="Take Decision"/>
+                            <PropertyValue Property="Determining" Bool="true"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+
+
             </Annotations>
             <Annotations Target="ZP5FE_EMP_SRV.Project">
                 <Annotation Term="UI.HeaderInfo">
