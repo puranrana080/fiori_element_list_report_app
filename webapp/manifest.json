@@ -92,6 +92,18 @@
       "@i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "uri": "i18n/i18n.properties"
+      },
+      "@i18n|sap.suite.ui.generic.template.ListReport|EmployeeSet": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ListReport/EmployeeSet/i18n.properties"
+      },
+      "@i18n|sap.suite.ui.generic.template.ObjectPage|EmployeeSet": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ObjectPage/EmployeeSet/i18n.properties"
+      },
+      "@i18n|sap.suite.ui.generic.template.ObjectPage|ProjectSet": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ObjectPage/ProjectSet/i18n.properties"
       }
     },
     "resources": {
