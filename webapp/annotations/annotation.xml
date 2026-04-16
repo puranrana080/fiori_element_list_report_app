@@ -111,6 +111,7 @@
                                 <PropertyValue Property="Value" Path="Empid" />
                             </Record>
                         </PropertyValue>
+                        <PropertyValue Property="TypeImageUrl" String="/sap/opu/odata/sap/ZP5FE_EMP_SRV/PhotoSet('{Empid})/$value" />
                     </Record>
                 </Annotation>
                 <Annotation Term="UI.SelectionFields">
@@ -230,65 +231,149 @@
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.CollectionFacet">
-                            <PropertyValue Property="Label" String="{@i18n>employeeInformation}"/>
+                            <PropertyValue Property="Label" String="{@i18n>employeeInformation}" />
                             <PropertyValue Property="Facets">
                                 <Collection>
                                     <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="{@i18n>basicInfo}"/>
-                                        <PropertyValue Property="ID" String="idEmpInfo"/>
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpBasicInfo"/>
+                                        <PropertyValue Property="Label" String="{@i18n>basicInfo}" />
+                                        <PropertyValue Property="ID" String="idEmpInfo" />
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpBasicInfo" />
                                     </Record>
                                     <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="{@i18n>skillInfo}"/>
-                                        <PropertyValue Property="ID" String="idEmpSkill"/>
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpSkill"/>
+                                        <PropertyValue Property="Label" String="{@i18n>skillInfo}" />
+                                        <PropertyValue Property="ID" String="idEmpSkill" />
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpSkill" />
                                     </Record>
                                     <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="{@i18n>performanceInfo}"/>
-                                        <PropertyValue Property="ID" String="idEmpPerf"/>
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpPerf"/>
+                                        <PropertyValue Property="Label" String="{@i18n>performanceInfo}" />
+                                        <PropertyValue Property="ID" String="idEmpPerf" />
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGEmpPerf" />
                                     </Record>
                                 </Collection>
                             </PropertyValue>
                         </Record>
                         <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Target" AnnotationPath="toProjects/@UI.LineItem#LIProjects"/>
-                            <PropertyValue Property="Label" String="{@i18n>projectsInformation}"/>
+                            <PropertyValue Property="Target" AnnotationPath="toProjects/@UI.LineItem#LIProjects" />
+                            <PropertyValue Property="Label" String="{@i18n>projectsInformation}" />
                         </Record>
                         <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Target" AnnotationPath="toProjects/@UI.Chart"/>
-                            <PropertyValue Property="Label" String="Project Vs Team Size"/>
-                            <PropertyValue Property="ID" String="idProjectMembers"/>
+                            <PropertyValue Property="Target" AnnotationPath="toProjects/@UI.Chart" />
+                            <PropertyValue Property="Label" String="Project Vs Team Size" />
+                            <PropertyValue Property="ID" String="idProjectMembers" />
                         </Record>
                     </Collection>
                 </Annotation>
             </Annotations>
             <Annotations Target="ZP5FE_EMP_SRV.Project">
-            <Annotation Term="UI.LineItem" Qualifier="LIProjects">
-                <Collection>
-                    <Record Type="UI.DataField">
-                        <PropertyValue Property="Value" Path="Empid"/>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Project" />
+                        <PropertyValue Property="TypeNamePlural" String="Projects" />
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Empid" />
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Prjcode" />
+                            </Record>
+                        </PropertyValue>
                     </Record>
-                     <Record Type="UI.DataField">
-                        <PropertyValue Property="Value" Path="Prjcode"/>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPClientname" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPPrjname" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPTeamsize" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.DataPoint" Qualifier="DPClientname">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="Clientname" />
+                        <PropertyValue Property="Title" String="Client Name" />
                     </Record>
-                     <Record Type="UI.DataField">
-                        <PropertyValue Property="Value" Path="Clientname"/>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPPrjname">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="Prjname" />
+                        <PropertyValue Property="Title" String="Project Name" />
                     </Record>
-                     <Record Type="UI.DataField">
-                        <PropertyValue Property="Value" Path="Prjname"/>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="DPTeamsize">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="Teamsize" />
+                        <PropertyValue Property="Title" String="Team Size" />
                     </Record>
-                     <Record Type="UI.DataField">
-                        <PropertyValue Property="Value" Path="Prjdesc"/>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGProjectInfo" />
+                            <PropertyValue Property="Label" String="Project Information" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="FGProjectInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Empid" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Clientname" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Prjcode" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Prjname" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Prjdesc" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Teamsize" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
                     </Record>
-                </Collection>
-            </Annotation>
-                
+                </Annotation>
+
+                <Annotation Term="UI.LineItem" Qualifier="LIProjects">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Empid" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Prjcode" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Clientname" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Prjname" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Prjdesc" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
                 <Annotation Term="UI.Chart">
                     <Record Type="UI.ChartDefinitionType">
-                        <PropertyValue Property="Description" String="Project Name vs Team Size"/>
-                        <PropertyValue Property="Title" String="Project Name vs Team Size"/>
-                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+                        <PropertyValue Property="Description" String="Project Name vs Team Size" />
+                        <PropertyValue Property="Title" String="Project Name vs Team Size" />
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column" />
                         <PropertyValue Property="Dimensions">
                             <Collection>
                                 <PropertyPath>Prjname</PropertyPath>
@@ -297,8 +382,8 @@
                         <PropertyValue Property="DimensionAttributes">
                             <Collection>
                                 <Record Type="UI.ChartDimensionAttributeType">
-                                    <PropertyValue Property="Dimension" PropertyPath="Prjname"/>
-                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                    <PropertyValue Property="Dimension" PropertyPath="Prjname" />
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category" />
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -310,8 +395,8 @@
                         <PropertyValue Property="MeasureAttributes">
                             <Collection>
                                 <Record Type="UI.ChartMeasureAttributeType">
-                                    <PropertyValue Property="Measure" PropertyPath="Teamsize"/>
-                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="Measure" PropertyPath="Teamsize" />
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1" />
                                 </Record>
                             </Collection>
                         </PropertyValue>

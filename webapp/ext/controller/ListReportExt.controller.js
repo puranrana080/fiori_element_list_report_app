@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/comp/smartfilterbar/SmartFilterBar",
     "sap/m/MultiComboBox",
-    "sap/m/MessageBox"
-], function (Filter, SmartFilterBar, MultiComboBox, MessageBox) {
+    "sap/m/MessageBox",
+   "sap/ui/unified/FileUploaderParameter"
+], function (Filter, SmartFilterBar, MultiComboBox, MessageBox,FileUploaderParameter) {
     "use strict";
     return {
 
@@ -101,6 +102,57 @@ sap.ui.define([
 
 
             MessageBox.show("Custom handler invoked.");
+        },
+        onPressUploadPhoto: function(oEvent) {
+            if(!this.dialog){
+                this.dialog = sap.ui.xmlfragment(this.getView().getId(),"com.listreport.p5felrsegw.UploadPhoto",this)
+                this.getView().addDependent(this.dialog)
+
+            }
+            this.dialog.open()
+       
+        },
+        onCloseDialog(){
+            this.dialog.close()
+        },
+        onFileSelect(oEvent){
+            this.fileName =oEvent.getParameter('files')[0].name
+            this.fileType =oEvent.getParameter('files')[0].type
+
+        },
+        onUploadComplete(oEvent){
+            var status = oEvent.getParameter("status")
+            if(status===201){
+                MessageBox.success("Employee Photo Uploded Successfully")
+            }else{
+                MessageBox.error("OOps error on upload")
+            }
+
+        },
+        uploadPhoto(){
+             var oFileUploader = this.getView().byId('idFileupload')
+            var empId = this.extensionAPI.getSelectedContexts()[0].getProperty("Empid")
+            var slug = empId + "," + this.fileName
+
+            // oFileUploader.destroyHeaderParameters();
+            //1. add slug parameter
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "slug",
+                value: slug
+            }))
+            //2 add the file types parameter
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "Content-Type",
+                value: this.fileType
+            }))
+            //3. add X-CSRF token
+            this.getOwnerComponent().getModel().refreshSecurityToken();
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "x-csrf-token",
+                value: this.getOwnerComponent().getModel().getHeaders()['x-csrf-token']
+            }))
+            oFileUploader.upload()
+
         }
     };
 });
